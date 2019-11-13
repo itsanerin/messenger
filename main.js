@@ -2,6 +2,8 @@
 //messages need to be stored with the user they belong to.
 //need to be able to read individual messages.
 //user.inbox --> that person's messages
+  //if user clicks on message in inbox, set seen = true and return message content
+  //record time that message was read
 //user.sendMessage('Brian', 'ayyyeee')
 //check whether a message has been read or not, when it was read, make it so people can block each other
 
@@ -22,6 +24,7 @@ class User {
   }
 
   readMessage(i) {
+    this.inbox[i].seen = true
     return this.inbox[i].content
   }
 }
@@ -30,9 +33,10 @@ let user1 = new User('Erin')
 let user2 = new User('Brian')
 
 class Message {
-  constructor(recipient, content) {
+  constructor(recipient, content, seen) {
     this.recipient = recipient
     this.content = content
+    this.seen = false
     alert("You have a new message!")
   }
 }
@@ -46,8 +50,11 @@ class Message {
 //   alert("Your message was sent!")
 // })
 //
-// let msg1 = new Message('This is the 1st message.') //each msg is an instance of the class Message
-// let msg2 = new Message('This is the 2nd message.')
+//let msg1 = new Message('This is the 1st message.') //each msg is an instance of the class Message
+//let msg2 = new Message('This is the 2nd message.')
+
+
+
 
 //any object based on a class is called an instance
 // an instance represents one object based on the class name
@@ -55,3 +62,7 @@ class Message {
 //An argument of a function is a value that MUST be provided to obtain the function's result. ayyyeee
 //The 'this' keyword when used in a constructor always refers to each individual instance.
 //The constructor runs once every time with the word 'new'
+//Something that requires behavior: use a class
+//Something that is an action: use a function
+//Check the state of something: use a property/attribute
+//Variables are nouns, functions are verbs
